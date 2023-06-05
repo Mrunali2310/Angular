@@ -1,0 +1,31 @@
+{
+  "post": [
+    {
+     
+      "name":"Mrunali",
+      "Technology":"Angular"
+    },
+    {
+      
+      "name":"sam",
+      "Technology":"React"
+    },
+    {
+     
+      
+      "name":"Gaytri",
+      "Technology":"Ios"
+    }
+    
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

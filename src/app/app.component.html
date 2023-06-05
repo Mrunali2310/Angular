@@ -1,0 +1,252 @@
+
+<h1>Hello world</h1>
+<br>
+
+<h1>-------------Exp of interpolation..............</h1>
+<h1>Hello Atos{{title}}</h1>
+<h1>{{c+d}}</h1>
+<br>
+
+<h1>-----------Exp of property binding........</h1>
+<h2 [innerText]=title></h2>
+<br>
+
+<h1>------------Exp of event binding--------------</h1>
+<button (click)="getVal()">Touch Here</button><br><br>
+
+<br>
+
+<h1>-------------Exp of two wayBinding--------------</h1>
+<input type="text" [(ngModel)]="name">
+<h3>{{name}}</h3>
+<br>
+
+
+<h1>-------------Exp of ngIF-----------</h1>
+
+<div *ngIf="show">
+  <h2>Welcome to Atos</h2>
+</div>
+
+<h1>........ ....................ngIf....................</h1>
+<h1 appRedEl>{{title}}</h1>
+<p>Angular Training</p>
+<p appRedEl> Hello Training</p>
+<p appRedEl>Atos</p>
+<p appRedEl>Mrunali</p>
+<p appRedEl>Angular</p>
+<br>
+
+<h1>----------Exp for *ngFor----------</h1>
+<ul  *ngFor="let emp of employee">
+   <li>{{emp.name}}</li>
+   
+</ul>
+<br>
+
+<h1>-------Example for *ngSwitch------------</h1>
+<hr>
+<ng-container [ngSwitch]="weekDay">
+   <h3 *ngSwitchCase="'Monday'">selected day is {{weekDay}}</h3>
+   <h3 *ngSwitchCase="'Tuesday'">selected day is{{weekDay}}</h3>
+   <h3 *ngSwitchCase="'Wednesday'">selected day is {{weekDay}}</h3>
+   <h3 *ngSwitchCase="'Thursday'">selected day is {{weekDay}}</h3>
+   <h3 *ngSwitchCase="'Friday'">selected day is {{weekDay}}</h3>
+   <h3 *ngSwitchCase="'saturday'">selected day is {{weekDay}}</h3>
+   <h3 *ngSwitchCase="'Sunday'">selected day is {{weekDay}}</h3>
+
+</ng-container>
+<br>
+
+<h1>-----------Exp of ngStyle-----------</h1>
+<button [ngStyle]="{'font-size.px':20,'font-style':'italic','color':'blue'}">ngStyle</button>
+<br>
+
+<h1>-----------Exp of ngClass -------------</h1>
+<h1 [ngClass]="'one two'"> Hello Angular</h1>
+
+<!--<div>This is templete outside the component file</div>-->
+
+<h1>----------Exp of Pipes-------</h1>
+<h1>{{user |uppercase}}</h1>
+<h1>{{user |lowercase}}</h1>
+<h1>{{user | titlecase}}</h1>
+<br>
+
+<h1>----------Exp of Currency Pipe-------</h1>
+  <h2>{{Amount | currency : 'INR'}}</h2>
+  <br>
+  <h1>-------Exp of Decimal Pipe---------</h1>
+  <h2>{{Amount | number : "1.1-1"}}</h2>
+  <br>
+  <h1>------Exp of Date Pipe------</h1>
+
+  <h2>{{currentdate  | date:"dd/MM/YYYY"}}</h2>
+  <br>
+  <h1>-----Exp of Percentage Pipe</h1>
+  <h2>{{percentageData | percent}}</h2>
+  <br>
+  <h1>------Exp of Slice----</h1>
+  <h2>{{index | slice :1:5}}</h2>
+  <br>
+  
+ 
+
+
+<!-- <h1>-----------Exp of template variable reference------------</h1>
+  <input type="text" #box placeholder="Enter Data">
+ <button (click)="getData(box)">Press Me</button> 
+ <br> -->
+
+
+<h1>Exp of routing</h1>
+<h1>Hi , Routing Component is Performed</h1>
+
+<a routerLink="">Home</a>
+<br>
+<a routerLink="about">About</a>
+<br>
+<a routerLink="user">User</a>
+
+
+<router-outlet></router-outlet>
+<br>
+
+
+<h1>------------Exp of template driven form---------</h1>
+<form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm.value)">
+
+   <input type="text" required #userName="ngModel" pattern="[a-zA-Z]+$" name="name" placeholder="Enter Name" ngModel>
+   <br>
+   <span *ngIf="userName.invalid && userName.touched" style="color:red;">Please enter Valid Input </span><br>
+   <br />
+   <input type="password" name="password" minlength="4" required #password="ngModel" placeholder="Enter password"
+      ngModel>
+   <br>
+   <span *ngIf="password.invalid && password.touched" style="color:red;">Please enter Valid Input </span><br>
+   <br>
+   <button [disabled]="loginForm.invalid">Login</button>
+</form>
+<br>
+
+
+<!-- <h1>--------Exp of Reactive form---------</h1>
+   <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="form-group">
+        <label for="firstname"> First Name </label>
+        <input formControlName="firstname" id="firstname" type="text" class="form-control">
+        <div *ngIf="Details.firstname.touched && Details.firstname.invalid" class="alert alert-danger">
+          <div *ngIf="Details.firstname.errors?.['required']">FirstName Required !!!!!</div>
+          <div *ngIf="Details.firstname.errors?.['minlength']">Name should be 4 character !!!!!</div>
+        </div>
+      </div>
+      <br>
+      <br>
+    
+      <div class="form-group">
+        <label for="lastname"> Last Name </label>
+        <input formControlName="lastname" id="lastname" type="text" class="form-control">
+        <div *ngIf="Details.lastname.touched && Details.lastname.invalid" class="alert alert-danger">
+          <div *ngIf="Details.lastname.errors?.['required']">LastName Required !!!!!</div>
+          <div *ngIf="Details.lastname.errors?.['minlength']">Name should be 4 character !!!!!</div>
+        </div>
+      </div>
+      <br>
+      <br>
+    
+      <div class="form-group">
+        <label for="email"> Email ID </label>
+        <input formControlName="email" id="email" type="text" class="form-control">
+        <div *ngIf="Details.email.touched && Details.email.invalid" class="alert alert-danger">
+          <div *ngIf="Details.email.errors?.['required']">Email is required !!!!!</div>
+          <div *ngIf="Details.email.errors?.['email']">Please, enter valid email address !!!!!</div>
+        </div>
+      </div>
+      <br>
+      <br>
+    
+      <div class="form-group">
+        <label for="city"> City </label>
+        <input formControlName="city" id="city" type="text" class="form-control">
+        <div *ngIf="Details.city.touched && Details.city.invalid" class="alert alert-danger">
+          <div *ngIf="Details.city.errors?.['required']">City Name Required !!!!!</div>
+          <div *ngIf="Details.city.errors?.['minlength']">City Name should be of 3 character !!!!!</div>
+        </div>
+      </div>
+      <br>
+      <br>
+    
+    
+      <div class="form-group">
+        <label for="address"> Address </label>
+        <input formControlName="address" id="address" type="text" class="form-control">
+        <div *ngIf="Details.address.touched && Details.address.invalid" class="alert alert-danger">
+          <div *ngIf="Details.address.errors?.['required']">Address Required !!!!!</div>
+          <div *ngIf="Details.address.errors?.['minlength']">Address should be of 10 character !!!!!</div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <button  class="btn btn-primary" type="submit">Submit</button>
+      </form>
+
+ -->
+ <h1>--------Exp of HttpCLient---------</h1>
+
+    <div class="container">
+    <div class="form-area">
+      <h3>Create user</h3>
+      <form #usersForm="ngForm"(ngSubmit)= "onUserCreate(usersForm.value)">
+        
+          <label>Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input typr="text" name="Name" ngModel>
+        <br><br>
+
+        <label>Technology :&nbsp;</label>
+        <input typr="text" name="Technology" ngModel>
+        
+        
+        <br>
+
+        <input type="submit" value ="{{editMode ? 'update user':'Add user'}}">
+      </form>
+    </div>
+
+    <div class="user-display-area">
+      <h3>all user</h3>
+      <table id="users" border=7>
+        <tr>
+          <th>Sr.No</th>
+          <th>Name</th>
+          <th>Technology</th>
+          <th>Actions</th>
+          
+        </tr>
+        <tr *ngIf= "allUsers.length <1 && !isFetching">
+          <td colspan="5">no user Available!</td>
+        </tr>
+        <tr *ngIf= "isFetching">
+          <td colspan="5"></td>
+        </tr>
+
+        <tr *ngFor= "let user of allUsers; index as i">
+          <td>{{i+1}}</td>
+          <td>{{user.Name}}</td>
+          <td>{{user.Technology}}</td>
+          <td><button class="btn-delete"(click)=onDeleteUser(user.id)><i class="fa fa-trash"></i></button></td>
+          <td><button class="btn-edit"(click)=OnEditClicked(user.id)><i class="fa fa-edit"></i></button></td>
+        </tr>
+      </table>
+
+      <div class="action-btn-container">
+        <td><button class="btn-fetch"(click)=onFetch()>Fetch user</button></td>
+        <td><button class="btn-clear"(click)=onDeleteAllUser()>Clear user</button></td>
+
+      </div>
+
+    </div>
+
+   </div>
+
+    

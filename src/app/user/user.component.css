@@ -1,0 +1,14 @@
+h2{
+    font-size: larger;
+    color:green;
+    font-style: italic;
+    font-weight: 100;
+    font-family: cursive;
+}
+h1{
+    font-size: larger;
+    color:blue;
+    font-style: italic;
+    font-weight: 100;
+    font-family: cursive;
+}
